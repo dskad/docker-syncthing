@@ -1,12 +1,9 @@
-istepanov/syncthing
+This repo exists just to set tags to trigger doecker hub builds when new syncthing releases happen. So far I'm to lazy to automate this...
+
+Below is the original instructions from [istepanov/syncthing](https://github.com/istepanov/syncthing)
+
 ===================
 
-[![Docker Stars](https://img.shields.io/docker/stars/istepanov/syncthing.svg)](https://hub.docker.com/r/istepanov/syncthing/)
-[![Docker Pulls](https://img.shields.io/docker/pulls/istepanov/syncthing.svg)](https://hub.docker.com/r/istepanov/syncthing/)
-[![Docker Build](https://img.shields.io/docker/automated/istepanov/syncthing.svg)](https://hub.docker.com/r/istepanov/syncthing/)
-[![Layers](https://images.microbadger.com/badges/image/istepanov/syncthing.svg)](https://microbadger.com/images/istepanov/syncthing)
-[![Version](https://images.microbadger.com/badges/version/istepanov/syncthing.svg)](https://microbadger.com/images/istepanov/syncthing)
-[![Join the chat at https://gitter.im/istepanov/docker-syncthing](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/istepanov/docker-syncthing?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 [Syncthing](http://syncthing.net/) Docker image
 
@@ -14,7 +11,7 @@ istepanov/syncthing
 
 Simpliest way to run this container is by using [docker-compose.yml](docker-compose.yml) file. Simply run:
 
-    wget https://raw.githubusercontent.com/istepanov/docker-syncthing/master/docker-compose.yml
+    wget https://raw.githubusercontent.com/dskad/docker-syncthing/master/docker-compose.yml
     docker-compose up -d
 
 Then access Syncthing Web UI at [http://localhost:8384/]().
@@ -47,7 +44,7 @@ The image itself tends to be minimal and doesn't provide any HTTPS functionality
 
 The easiest way to do it is by using Let's Encrypt certifcates and 3 additional containers: [official Nginx image](https://hub.docker.com/_/nginx/), [jwilder/docker-gen](https://github.com/jwilder/docker-gen) image to auto-generate Nginx configs and [jrcs/letsencrypt-nginx-proxy-companion](https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion) image to auto-generate/auto-renew SSL certificates. To orchestrate all containers, we'll use [docker-compose-https.yml](docker-compose-https.yml) file:
 
-    wget https://raw.githubusercontent.com/istepanov/docker-syncthing/master/docker-compose-https.yml
+    wget https://raw.githubusercontent.com/dskad/docker-syncthing/master/docker-compose-https.yml
 
     # before launching, we need to prepare 2 docker volumes:
     docker volume create --driver local --name certs
